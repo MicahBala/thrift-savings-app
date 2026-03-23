@@ -1,0 +1,32 @@
+{
+  "name": "thrift-savings-app",
+  "version": "1.0.0",
+  "description": "Thrift Savings App is a modernized cooperative savings (Ajo/Esusu) platform for managing group contributions, tracking thrift pools, and automating payout schedules.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MicahBala/thrift-savings-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MicahBala/thrift-savings-app/issues"
+  },
+  "homepage": "https://github.com/MicahBala/thrift-savings-app#readme",
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2"
+  },
+  "lint-staged": {
+    "server/**/*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
