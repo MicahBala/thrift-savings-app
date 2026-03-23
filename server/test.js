@@ -1,3 +1,4 @@
-const express = require("express")
-const app=express(  )
-    console.log( "Testing Husky" )
+const express = require('express');
+
+const app = express();
+app.listen(5000);
