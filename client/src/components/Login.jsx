@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -19,12 +21,17 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setLoading(true);
+    setError(null);
     try {
       const response = await axios.post('/api/auth/signin', formData);
       console.log('Signin successful:', response.data);
-    } catch (error) {
-      console.error('Signin error:', error);
+      // Replace with navigation or context update when fully integrated
+    } catch (err) {
+      console.error('Signin error:', err);
+      setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -59,6 +66,12 @@ const Login = () => {
             </div>
 
             <div className="px-6 pb-8">
+              {error && (
+                <div className="mb-6 p-4 rounded-xl bg-[#FFDAD6] text-[#BA1A1A] text-sm font-medium border border-[#FFB4AB] flex items-center gap-3">
+                  <span className="material-symbols-outlined">error</span>
+                  <p>{error}</p>
+                </div>
+              )}
               <form className="space-y-6" onSubmit={handleSubmit}>
 
                 <div className="space-y-2">
@@ -80,8 +93,8 @@ const Login = () => {
                   </div>
                 </div>
 
-                <button type="submit" className="signature-gradient w-full py-4 rounded-full text-white font-headline font-bold text-lg hover:opacity-90 transition-all shadow-lg shadow-primary-container/20 mt-6 md:mt-8">
-                  Sign In
+                <button type="submit" disabled={loading} className="signature-gradient w-full py-4 rounded-full text-white font-headline font-bold text-lg hover:opacity-90 transition-all shadow-lg shadow-primary-container/20 mt-6 md:mt-8 disabled:opacity-70 disabled:cursor-not-allowed">
+                  {loading ? 'Signing In...' : 'Sign In'}
                 </button>
               </form>
 

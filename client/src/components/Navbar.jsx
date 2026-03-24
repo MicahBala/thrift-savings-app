@@ -21,7 +21,7 @@ const Navbar = () => {
         </div>
         <div className="hidden md:flex items-center gap-4">
           <button className="text-slate-600 dark:text-slate-400 hover:text-blue-600 font-medium transition-colors">Support</button>
-          <button onClick={() => navigate('/auth')} className="signature-gradient text-white px-5 py-2.5 rounded-xl font-medium scale-95 hover:scale-100 duration-200 transition-transform shadow-lg shadow-primary/10">Get Started</button>
+          <button onClick={() => navigate('/signup')} className="signature-gradient text-white px-5 py-2.5 rounded-xl font-medium scale-95 hover:scale-100 duration-200 transition-transform shadow-lg shadow-primary/10">Get Started</button>
         </div>
         {/* Mobile menu button */}
         <div className="md:hidden flex items-center">
@@ -41,7 +41,7 @@ const Navbar = () => {
             <a className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" href="#">Company</a>
             <hr className="border-slate-200 dark:border-slate-800" />
             <button className="text-slate-600 dark:text-slate-400 hover:text-blue-600 font-medium transition-colors text-left">Support</button>
-            <button onClick={() => navigate('/auth')} className="signature-gradient text-white px-5 py-2.5 rounded-xl font-medium transition-transform shadow-lg shadow-primary/10 w-full text-center">Get Started</button>
+            <button onClick={() => navigate('/signup')} className="signature-gradient text-white px-5 py-2.5 rounded-xl font-medium transition-transform shadow-lg shadow-primary/10 w-full text-center">Get Started</button>
           </div>
         </div>
       )}

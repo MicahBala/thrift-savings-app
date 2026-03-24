@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import LandingPage from './pages/LandingPage'
-import Auth from './components/Auth'
+import Login from './components/Login'
+import Signup from './components/Signup'
 import Dashboard from './components/Dashboard'
 import DashboardLayout from './components/DashboardLayout'
 import './index.css'
@@ -24,7 +25,8 @@ function App() {
         {/* Public Routes */}
         <Route element={<PublicLayout />}>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/auth" element={<Auth />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Route>
         
         {/* Dashboard Routes with Sidebar and TopNav */}

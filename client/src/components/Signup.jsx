@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -25,12 +27,17 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    setLoading(true);
+    setError(null);
     try {
       const response = await axios.post('/api/auth/signup', formData);
       console.log('Signup successful:', response.data);
-    } catch (error) {
-      console.error('Signup error:', error);
+      // Navigate to login or authenticate automatically and navigate to dashboard
+    } catch (err) {
+      console.error('Signup error:', err);
+      setError(err.response?.data?.message || 'Something went wrong during signup. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -65,6 +72,12 @@ const Signup = () => {
             </div>
 
             <div className="px-6 pb-8">
+              {error && (
+                <div className="mb-6 p-4 rounded-xl bg-[#FFDAD6] text-[#BA1A1A] text-sm font-medium border border-[#FFB4AB] flex items-center gap-3">
+                  <span className="material-symbols-outlined">error</span>
+                  <p>{error}</p>
+                </div>
+              )}
               <form className="space-y-6" onSubmit={handleSubmit}>
 
                 <div className="space-y-2">
@@ -125,8 +138,8 @@ const Signup = () => {
                   </label>
                 </div>
 
-                <button type="submit" className="signature-gradient w-full py-4 rounded-full text-white font-headline font-bold text-lg hover:opacity-90 transition-all shadow-lg shadow-primary-container/20 mt-6 md:mt-8">
-                  Create Account
+                <button type="submit" disabled={loading} className="signature-gradient w-full py-4 rounded-full text-white font-headline font-bold text-lg hover:opacity-90 transition-all shadow-lg shadow-primary-container/20 mt-6 md:mt-8 disabled:opacity-70 disabled:cursor-not-allowed">
+                  {loading ? 'Creating Account...' : 'Create Account'}
                 </button>
               </form>
 
