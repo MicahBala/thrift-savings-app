@@ -3,6 +3,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import CreateGroupModal from './CreateGroupModal';
 import JoinGroupModal from './JoinGroupModal';
+import PaymentModal from './PaymentModal';
+import DisbursementModal from './DisbursementModal';
+import HaltModal from './HaltModal';
 
 const Dashboard = () => {
   const [data, setData] = useState(null);
@@ -10,6 +13,9 @@ const Dashboard = () => {
   const [error, setError] = useState(null);
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+  const [isDisburseModalOpen, setIsDisburseModalOpen] = useState(false);
+  const [isHaltModalOpen, setIsHaltModalOpen] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
   const navigate = useNavigate();
 
@@ -140,17 +146,26 @@ const Dashboard = () => {
 
           {/* Action Row */}
           <section className="flex flex-col md:flex-row gap-5 items-center">
-            <button className="w-full md:w-auto bg-gradient-to-br from-[#0037B0] to-[#1D4ED8] text-white px-8 py-4 rounded-xl font-bold text-center hover:shadow-lg hover:shadow-[#1D4ED8]/[0.2] transition-all">
+            <button 
+              onClick={() => setIsPaymentModalOpen(true)}
+              className="w-full md:w-auto bg-gradient-to-br from-[#0037B0] to-[#1D4ED8] text-white px-8 py-4 rounded-xl font-bold text-center hover:shadow-lg hover:shadow-[#1D4ED8]/[0.2] transition-all"
+            >
               Pay Due Contribution
             </button>
             
             {userRole === 'Admin' && (
-              <button className="w-full md:w-auto bg-[#F3F4F5] text-[#191C1D] font-bold px-8 py-4 rounded-xl hover:bg-[#E1E3E4] transition-all text-center border border-[#C4C5D7]/15">
+              <button 
+                onClick={() => setIsDisburseModalOpen(true)}
+                className="w-full md:w-auto bg-[#F3F4F5] text-[#191C1D] font-bold px-8 py-4 rounded-xl hover:bg-[#E1E3E4] transition-all text-center border border-[#C4C5D7]/15"
+              >
                 Disburse Funds
               </button>
             )}
 
-            <button className="w-full md:w-auto text-[#7F2500] font-bold px-8 py-4 rounded-xl hover:bg-[#FFE5D8] transition-all md:ml-auto">
+            <button 
+              onClick={() => setIsHaltModalOpen(true)}
+              className="w-full md:w-auto text-[#7F2500] font-bold px-8 py-4 rounded-xl hover:bg-[#FFE5D8] transition-all md:ml-auto"
+            >
               Halt Cycle
             </button>
           </section>
@@ -236,6 +251,26 @@ const Dashboard = () => {
         onClose={() => setIsJoinModalOpen(false)} 
         onSuccess={handleSuccess} 
       />
+      {data && data.groupId && (
+        <>
+          <PaymentModal 
+            isOpen={isPaymentModalOpen}
+            onClose={() => setIsPaymentModalOpen(false)}
+            onSuccess={handleSuccess}
+            amountDue={50000}
+          />
+          <DisbursementModal 
+            isOpen={isDisburseModalOpen}
+            onClose={() => setIsDisburseModalOpen(false)}
+            onSuccess={handleSuccess}
+            roster={data.roster}
+          />
+          <HaltModal 
+            isOpen={isHaltModalOpen}
+            onClose={() => setIsHaltModalOpen(false)}
+          />
+        </>
+      )}
     </>
   );
 };
