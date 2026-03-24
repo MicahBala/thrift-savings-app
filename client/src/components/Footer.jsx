@@ -7,7 +7,7 @@ const Footer = () => {
             Thrift Savings
           </span>
           <p className="text-slate-500 dark:text-slate-400 text-[0.7rem] font-body mt-1">
-            © 2024 Thrift Savings. All rights reserved.
+            © 2026 Thrift Savings. All rights reserved.
           </p>
         </div>
         <div className="flex gap-x-8">

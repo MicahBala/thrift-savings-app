@@ -18,10 +18,10 @@ const LandingPage = () => {
               <p className="text-on-surface-variant text-lg md:text-xl max-w-xl mb-10 leading-relaxed">Experience the new standard for cooperative savings. Built on the principles of absolute transparency and automated precision, Thrift Savings secures your collective financial future.
               </p>
               <div className="flex flex-wrap gap-4">
-                <button onClick={() => navigate('/auth')} className="signature-gradient text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/20 hover:opacity-90 transition-opacity">
+                <button onClick={() => navigate('/signup')} className="signature-gradient text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl shadow-primary/20 hover:opacity-90 transition-opacity">
                   Get Started
                 </button>
-                <button onClick={() => navigate('/auth')} className="bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-bold text-lg border border-outline-variant/15 hover:bg-surface-container-highest transition-colors">
+                <button onClick={() => navigate('/login')} className="bg-surface-container-high text-on-surface px-8 py-4 rounded-xl font-bold text-lg border border-outline-variant/15 hover:bg-surface-container-highest transition-colors">
                   Sign In
                 </button>
               </div>
@@ -94,7 +94,7 @@ const LandingPage = () => {
             <div className="relative z-10">
               <h2 className="font-headline font-bold text-4xl md:text-5xl text-white mb-6">Ready to sync your thrift?</h2>
               <p className="text-on-primary-container text-xl mb-10 max-w-2xl mx-auto">Join thousands of cooperatives already using our transparent vault to manage over $500M in shared assets.</p>
-              <button onClick={() => navigate('/auth')} className="bg-white text-primary px-10 py-5 rounded-xl font-bold text-xl hover:bg-surface-container-low transition-colors shadow-2xl">
+              <button onClick={() => navigate('/signup')} className="bg-white text-primary px-10 py-5 rounded-xl font-bold text-xl hover:bg-surface-container-low transition-colors shadow-2xl">
                 Get Started
               </button>
             </div>

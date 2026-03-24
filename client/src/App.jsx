@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import LandingPage from './pages/LandingPage'
-import Auth from './components/Auth'
+import Login from './components/Login'
+import Signup from './components/Signup'
 import './index.css'
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
         <div className="flex-1">
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/auth" element={<Auth />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
         <Footer />
