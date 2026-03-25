@@ -8,6 +8,7 @@ const { errorHandler } = require('./middleware/errorMiddleware');
 // Routes Imports
 const authRoutes = require('./routes/authRoutes');
 const groupRoutes = require('./routes/groupRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.get('/api/v1/health', (req, res) => {
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/groups', groupRoutes);
+app.use('/api/v1/payments', paymentRoutes);
 
 // Global Error Handler (MUST be the last middleware)
 app.use(errorHandler);
