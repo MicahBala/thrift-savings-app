@@ -1,6 +1,10 @@
 const express = require('express');
 const { body } = require('express-validator');
-const { createGroup, joinGroup } = require('../controllers/groupController');
+const {
+  createGroup,
+  joinGroup,
+  getGroupDashboard,
+} = require('../controllers/groupController');
 const { protect } = require('../middleware/authMiddleware');
 const { validateRequest } = require('../middleware/validatorMiddleware');
 
@@ -34,5 +38,7 @@ router.post(
   validateRequest,
   joinGroup
 );
+
+router.get('/dashboard', protect, getGroupDashboard);
 
 module.exports = router;

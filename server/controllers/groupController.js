@@ -86,4 +86,43 @@ const joinGroup = async (req, res, next) => {
   }
 };
 
-module.exports = { createGroup, joinGroup };
+// @desc    Get group dashboard data (vault balance & member roster)
+// @route   GET /api/v1/groups/dashboard
+// @access  Private
+const getGroupDashboard = async (req, res, next) => {
+  try {
+    // Ensure the user is actually in a group
+    if (!req.user.groupId) {
+      res.status(400);
+      throw new Error('You are not assigned to any group yet');
+    }
+
+    // Fetch the group details (Vault balance and cycle goals)
+    const group = await Group.findById(req.user.groupId).select(
+      'groupName inviteCode contributionAmount cycleGoal totalPool frequency isCycleActive adminId'
+    );
+
+    if (!group) {
+      res.status(404);
+      throw new Error('Group not found');
+    }
+
+    // Fetch the lis of members
+    // We only select the exact fields to be displayed
+    const members = await User.find({ groupId: req.user.groupId }).select(
+      'fullName role status lastPaidDate'
+    );
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        group,
+        roster: members,
+      },
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { createGroup, joinGroup, getGroupDashboard };
