@@ -14,8 +14,14 @@ const app = express();
 
 connectDB();
 
+const corsOptions = {
+  // Add your Vercel URL here (no trailing slash at the end!)
+  origin: ['http://localhost:5173', 'https://thrift-savings-app.vercel.app/'],
+  credentials: true,
+};
+
 app.use(helmet());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // TODO: In production, this would be the deployed URL.
-  baseURL: 'http://localhost:5000/api/v1',
+  // Vite looks for the Live URL first. If it's not there, it uses localhost.
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1',
   headers: {
     'Content-Type': 'application/json',
   },
