@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import api from '../utils/api'; // Import your custom API bridge
+import api from '../utils/api';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -28,16 +28,12 @@ const Login = () => {
     setError(null);
 
     try {
-      // 1. Make the API request using your custom instance
       const response = await api.post('/auth/signin', formData);
 
-      // 2. Extract user data and token
       const userData = response.data.data;
 
-      // 3. Save to local storage so the interceptor can use the token
       localStorage.setItem('thrift_user', JSON.stringify(userData));
 
-      // 4. Fire a success toast and navigate to the dashboard
       toast.success('Welcome back!');
       navigate('/dashboard');
     } catch (err) {
