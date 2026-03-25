@@ -17,7 +17,7 @@
 
 ---
 
-## 📖 User Guide: How to Use Thrift Sync
+## 📖 User Guide: How to Use Thrift Savings
 
 Whether you want to lead a savings group or just participate, here is how to get started:
 
