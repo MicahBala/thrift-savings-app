@@ -4,6 +4,9 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 const { errorHandler } = require('./middleware/errorMiddleware');
 
+// Routes Imports
+const authRoutes = require('./routes/authRoutes');
+
 const app = express();
 
 connectDB();
@@ -22,6 +25,8 @@ app.get('/api/v1/health', (req, res) => {
     },
   });
 });
+
+app.use('/api/v1/auth', authRoutes);
 
 // Global Error Handler (MUST be the last middleware)
 app.use(errorHandler);
