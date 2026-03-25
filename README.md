@@ -1,91 +1,55 @@
-# Thrift Savings App 🚀
+# 🚀 Thrift Savings App
 
-Thrift Savings App is a modernized cooperative savings (Ajo/Esusu) platform for managing group contributions, tracking thrift pools, and automating payout schedules.
+**Thrift Savings App** brings the traditional cooperative savings model (Ajo / Esusu / Adashe) into the digital age. It is a secure, modernized platform designed to help communities and friends easily manage group contributions, pool funds, and transparently track payout cycles.
 
-## 📁 Project Architecture
-
-This project uses a decoupled Monorepo structure. While the code lives in one repository, the frontend and backend operate and are deployed independently.
-
-- **/client**: The React.js frontend (Vite). Deployed on **Vercel**.
-- **/server**: The Node.js/Express REST API. Deployed on **Render**.
+🌍 **Live Demo:** [Visit Thrift Savings on ](https://thrift-savings-app.vercel.app/)
 
 ---
 
-## 🛠️ Local Setup & Installation
+## ✨ What You Can Do (MVP Features)
 
-To run this project locally, you must start the client and the server in two separate terminal windows. 
-
-### Prerequisites
-- Node.js installed
-- MongoDB installed locally OR a MongoDB Atlas connection URI
-
-### 1. Clone the repository
-\`\`\`bash
-git clone https://github.com/MicahBala/thrift-savings-app.git   
-cd thrift-savings-app
-\`\`\`
-
-### 2. Backend Setup (`/server`)
-The backend runs on port 5000 by default.
-\`\`\`bash
-cd server
-npm install
-\`\`\`
-Create a `.env` file in the `/server` directory:
-\`\`\`text
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_super_secret_key
-INTERSWITCH_CLIENT_ID=your_test_client_id
-INTERSWITCH_SECRET_KEY=your_test_secret_key
-\`\`\`
-Start the development server:
-\`\`\`bash
-npm run dev
-\`\`\`
-
-### 3. Frontend Setup (`/client`)
-Open a **new** terminal window. The Vite frontend runs on port 5173 by default.
-\`\`\`bash
-cd client
-npm install
-\`\`\`
-Create a `.env` file in the `/client` directory to point to your local API:
-\`\`\`text
-VITE_API_BASE_URL=http://localhost:5000/api/v1
-\`\`\`
-Start the Vite development server:
-\`\`\`bash
-npm run dev
-\`\`\`
+- **Secure Authentication:** Create a personal account and safely log in to your dashboard.
+- **Create Savings Groups:** Start a new thrift group, set the contribution amount, and define the cycle goal.
+- **Join via Invite Code:** Easily join an existing group using a secure 6-character code.
+- **Make Contributions:** Pay your cycle dues directly into the group vault.
+- **Transparent Tracking:** See exactly who has paid, who is pending, and watch the total pool grow in real-time.
+- **Automated Disbursements:** Group Admins can disburse the total pool to a selected member once the cycle goal is reached.
 
 ---
 
-## 🤝 Contribution Guidelines
+## 📖 User Guide: How to Use Thrift Sync
 
-We strictly use a Git Flow branching strategy to avoid merge conflicts. **Do not push directly to `main` or `develop`.**
+Whether you want to lead a savings group or just participate, here is how to get started:
 
-### Workflow
-1. **Pull the latest changes:** Always branch off the latest `develop` branch.
-   \`\`\`bash
-   git checkout develop
-   git pull origin develop
-   \`\`\`
-2. **Create a feature branch:** \`\`\`bash
-   git checkout -b feature/your-feature-name
-   \`\`\`
-3. **Commit your changes:**
-   \`\`\`bash
-   git add .
-   git commit -m "feat: added login modal to dashboard"
-   \`\`\`
-4. **Push and PR:** Push your branch to GitHub and open a Pull Request against the `develop` branch.
-   \`\`\`bash
-   git push origin feature/your-feature-name
-   \`\`\`
-5. **Link Issues:** In your PR description, mention the issue number you are solving (e.g., "Closes #4") so GitHub closes it automatically upon merge.
+### 1. Create an Account
+
+- Click the **Sign Up** link on the homepage.
+- Enter your Name, Email, and a secure password.
+- Once registered, you will be redirected to your personal Dashboard.
+
+### 2. Join or Create a Group
+
+When you log in for the first time, your vault will be empty. You have two choices:
+
+- **Create a Group (Become an Admin):** Click "Create New Group". Set the name, how much everyone needs to contribute, and the target goal. You will be given a 6-character **Invite Code** to share with your friends.
+- **Join a Group (Become a Member):** Click "Join via Invite Code" and paste the 6-character code given to you by a group Admin.
+
+### 3. Make Your Contribution
+
+- Once inside a group, you will see the Vault Overview and the Group Roster.
+- Click **Pay Due Contribution**.
+- _Testing Note:_ The app uses a secure simulated payment gateway for this MVP. You can easily test this by clicking "Pay Now" and watching the vault balance update automatically! Once paid, your status turns green.
+
+### 4. Group Disbursements (Admins Only)
+
+- The **Disburse Funds** button is strictly locked until the `Total Pool` reaches the `Cycle Goal`.
+- Once the vault is full, the Admin can click the button, select a member from the dropdown, and empty the vault.
+- All members will automatically be reset to "Pending" so the next savings cycle can begin!
 
 ---
 
-## 📄 License
-This project is licensed under the MIT License.
+## 🤝 Want to contribute?
+
+We welcome community feedback! If you find a bug or have a feature request, please open an Issue in this repository.
+
+_Built with ❤️ for financial empowerment._
