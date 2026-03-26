@@ -14,17 +14,35 @@ const app = express();
 
 connectDB();
 
+const allowedOrigin = 'https://thrift-savings-app.vercel.app';
+
 app.use(
   cors({
-    origin: [
-      'http://localhost:5173', // Keeps local development working
-      'https://thrift-savings-app.vercel.app', // Your live Vercel domain!
-    ],
-    credentials: true, // Crucial if you are using cookies or authorization headers
+    origin: allowedOrigin,
+    credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+      'X-Requested-With',
+      'Accept',
+    ],
   })
 );
+
+// Add a manual header fallback for Preflight requests
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', allowedOrigin);
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+
+  // If it's a preflight (OPTIONS) request, respond immediately with 200
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  next();
+});
 
 app.use(helmet());
 app.use(express.json());
