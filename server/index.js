@@ -1,6 +1,6 @@
+const cors = require('cors');
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
 const helmet = require('helmet');
 const connectDB = require('./config/db');
 const { errorHandler } = require('./middleware/errorMiddleware');
@@ -14,14 +14,19 @@ const app = express();
 
 connectDB();
 
-const corsOptions = {
-  // Add your Vercel URL here (no trailing slash at the end!)
-  origin: ['http://localhost:5173', 'https://thrift-savings-app.vercel.app/'],
-  credentials: true,
-};
+app.use(
+  cors({
+    origin: [
+      'http://localhost:5173', // Keeps local development working
+      'https://thrift-savings-app.vercel.app', // Your live Vercel domain!
+    ],
+    credentials: true, // Crucial if you are using cookies or authorization headers
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 
 app.use(helmet());
-app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
