@@ -87,5 +87,3 @@ This project was built with a clear division of labor to ensure high-quality del
 ## 🤝 Want to contribute?
 
 We welcome community feedback! If you find a bug or have a feature request, please open an Issue in this repository.
-
-_Built with ❤️ for financial empowerment._
