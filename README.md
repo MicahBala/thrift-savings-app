@@ -1,4 +1,4 @@
-# 🚀 Thrift Savings App
+# Thrift Savings App
 
 **Thrift Savings App** brings the traditional cooperative savings model (Ajo / Esusu / Adashe) into the digital age. It is a secure, modernized platform designed to help communities and friends easily manage group contributions, pool funds, and transparently track payout cycles.
 
@@ -17,7 +17,7 @@
 
 ---
 
-## 📖 User Guide: How to Use Thrift Savings
+## User Guide: How to Use Thrift Savings
 
 Whether you want to lead a savings group or just participate, here is how to get started:
 
@@ -38,7 +38,13 @@ When you log in for the first time, your vault will be empty. You have two choic
 
 - Once inside a group, you will see the Vault Overview and the Group Roster.
 - Click **Pay Due Contribution**.
-- _Testing Note:_ The app uses a secure simulated payment gateway for this MVP. You can easily test this by clicking "Pay Now" and watching the vault balance update automatically! Once paid, your status turns green.
+- _Testing Note:_ The app uses a secure simulated payment gateway for this MVP. You can easily test this by clicking "Pay Now" and watching the vault balance update automatically! Once paid, your status turns green. Use the sample card details given:
+  Test CARD details (Verve)
+- Card Number: 5061050254756707864
+- Expiry: 06/26
+- CVV: 111
+- PIN: 1111
+- OTP: 123456
 
 ### 4. Group Disbursements (Admins Only)
 
@@ -54,13 +60,13 @@ This project was built with a clear division of labor to ensure high-quality del
 
 ### 💻 Technical Contributions
 
-**Micah Bala** _Lead Frontend Engineer & Backend Contributor_ \* **Frontend Development:** Architected the entire React.js (Vite) application structure, implemented the responsive UI, and integrated state management for the user dashboard.
+**Micah Bala** _Lead Frontend Developer & Backend Contributor_ \* **Frontend Development:** Architected the entire React.js (Vite) application structure, implemented the responsive UI, and integrated state management for the user dashboard.
 
 - **Payment Integration:** Engineered the Interswitch WebPAY inline checkout logic and created the transaction simulation flow for the MVP.
 - **Backend Support:** Collaborated on the Express.js API design, specifically focusing on the payment verification and disbursement logic.
 - **DevOps:** Managed the frontend deployment on Vercel and configured environment variables for secure API communication.
 
-**Echanny Idagu** _Backend Engineer_ \* **API Architecture:** Designed and implemented the RESTful API endpoints for User Authentication (JWT), Group Management, and Roster tracking.
+**Echanny Emmanuel Idagu** _Backend Developer_ \* **API Architecture:** Designed and implemented the RESTful API endpoints for User Authentication (JWT), Group Management, and Roster tracking.
 
 - **Database Design:** Architected the MongoDB schemas to handle complex relational-like data between Users, Groups, and Transaction records.
 - **Logic Implementation:** Developed the backend controllers for the automated vault cycle and the administrative disbursement triggers.
@@ -68,13 +74,26 @@ This project was built with a clear division of labor to ensure high-quality del
 
 ---
 
-### 🎨 Non-Technical & Design Contributions
+### Non-Technical, Design & Product Strategy
 
-**Iorver Sur** _UI/UX Designer & Product Strategy_ \* **Visual Design:** Created the high-fidelity mockups and design system, focusing on a clean, FinTech-inspired "Trust & Security" aesthetic.
+**Chinenye Nzeh** _Product Manager_ \* **MVP Scoping & Strategy:** Defined the core feature set for the 48-hour build, prioritizing the critical path (group creation, payment integration, and disbursement) to ensure a complete, functional demo.
 
-- **User Experience:** Conducted the user flow research to simplify the traditional "Thrift" process into a three-step digital journey.
-- **Prototyping:** Built the interactive prototypes used to guide the frontend development phase.
-- **Product Research:** Analyzed traditional thrift models (Ajo/Esusu) to ensure the digital version maintained the core cultural values of cooperative savings.
+- **Technical Documentation:** Authored and managed the comprehensive product specification documents, bridging the gap between the UI/UX vision and backend architecture.
+- **Cross-Functional Leadership:** Managed the agile workflow, unblocked the engineering team, and ensured the final product aligned perfectly with the traditional Ajo/Esusu cultural values.
+- **Market Positioning:** Crafted the value proposition and target audience analysis for the final pitch and presentation.
+
+**Iorver Sur** _UI/UX Designer_ \* **Visual Design:** Created the high-fidelity mockups and design system, focusing on a clean, FinTech-inspired "Trust & Security" aesthetic.
+
+- **User Experience (UX):** Conducted user flow research to simplify the traditional "Thrift" process into a frictionless, three-step digital journey.
+- **Interactive Prototyping:** Built the interactive prototypes used to guide the frontend engineering phase.
+
+---
+
+### 🔗 Project Documentation & Specs
+
+To ensure a scalable and well-architected application, our team mapped out the product requirements and technical flows before writing code. You can review our documentation here:
+
+- **[UI/UX Design and Backend Specifications](https://docs.google.com/document/d/1BvVhb-b8bdW5YxC3xcK0WyP4XJ4Bq7JKeyrbkJ7HwSs/edit?usp=sharing)**
 
 ---
 
