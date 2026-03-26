@@ -4,7 +4,6 @@
   "description": "Thrift Savings App is a modernized cooperative savings (Ajo/Esusu) platform for managing group contributions, tracking thrift pools, and automating payout schedules.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky"
   },
   "repository": {

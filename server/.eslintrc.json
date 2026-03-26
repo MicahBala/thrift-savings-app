@@ -12,6 +12,7 @@
   "rules": {
     "prettier/prettier": "error",
     "no-console": "warn",
-    "consistent-return": "off"
+    "consistent-return": "off",
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }]
   }
 }
