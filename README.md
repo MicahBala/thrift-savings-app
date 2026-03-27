@@ -93,7 +93,9 @@ This project was built with a clear division of labor to ensure high-quality del
 
 To ensure a scalable and well-architected application, our team mapped out the product requirements and technical flows before writing code. You can review our documentation here:
 
-- **[UI/UX Design and Backend Specifications](https://docs.google.com/document/d/1BvVhb-b8bdW5YxC3xcK0WyP4XJ4Bq7JKeyrbkJ7HwSs/edit?usp=sharing)**
+- **[UI/UX Design Specifications & User Flows](https://www.figma.com/design/Kyz9GeJj6YWieV6aL1HLI4/Untitled?node-id=60-106&t=phH9IKxrSJUjexle-1)**
+- **[Backend Architecture & API Specifications](https://docs.google.com/document/d/1BvVhb-b8bdW5YxC3xcK0WyP4XJ4Bq7JKeyrbkJ7HwSs/edit?usp=sharing)**
+-
 
 ---
 
